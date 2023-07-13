@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 23:36:19 by raalonso          #+#    #+#             */
-/*   Updated: 2023/05/08 22:18:00 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/07/13 21:57:33 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,7 @@ int	ft_printf(char const *print, ...)
 
 int main(void)
 {
-	printf("\n%d\n", ft_printf("este es %%%%%% un entero: %x", 8409249));
+	int num = 981811;
+	printf("\n%d\n", ft_printf("este es %%%%%% un entero: %p", &num));
 	return 0;
 }
