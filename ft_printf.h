@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 01:52:37 by raalonso          #+#    #+#             */
-/*   Updated: 2023/07/15 18:57:14 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/07/15 19:51:44 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <stdlib.h>
 
 int	ft_printf(char const *print, ...);
-int	ft_puthex(int n, int flag);
+int	ft_puthex(unsigned int n, int flag);
 int	ft_putmem(void *mem);
 int	ft_puthexmem(uintptr_t n, int flag);
 int	ft_putchar_fd(char c, int fd);

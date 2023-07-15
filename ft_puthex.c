@@ -6,13 +6,13 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/08 21:38:53 by raalonso          #+#    #+#             */
-/*   Updated: 2023/05/08 22:15:57 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/07/15 19:51:28 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	cases(int n, int flag, int count)
+int	cases(unsigned int n, int flag, int count)
 {
 	char	num;
 
@@ -29,7 +29,7 @@ int	cases(int n, int flag, int count)
 	return (count);
 }
 
-int	ft_puthex(int n, int flag)
+int	ft_puthex(unsigned int n, int flag)
 {
 	char	num;
 	int		count;

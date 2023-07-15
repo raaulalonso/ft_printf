@@ -6,13 +6,13 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 23:36:19 by raalonso          #+#    #+#             */
-/*   Updated: 2023/07/15 18:58:38 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/07/15 19:52:08 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	convers(char *print, int i, va_list param, int *count)
+void	convers(char *print, int i, va_list param, int *count)
 {
 	if ((print[i] != '\0') && (print[i + 1] == 's'))
 		*count += (ft_putstr_fd(va_arg(param, char *), 1) - 2);
@@ -26,12 +26,11 @@ int	convers(char *print, int i, va_list param, int *count)
 	else if ((print[i] != '\0') && (print[i + 1] == 'p'))
 		*count += (ft_putmem(va_arg(param, void *)) - 2);
 	else if ((print[i] != '\0') && (print[i + 1] == 'x'))
-		*count += (ft_puthex(va_arg(param, int), 1) - 2);
+		*count += (ft_puthex(va_arg(param, unsigned int), 1) - 2);
 	else if ((print[i] != '\0') && (print[i + 1] == 'X'))
-		*count += (ft_puthex(va_arg(param, int), 2) - 2);
+		*count += (ft_puthex(va_arg(param, unsigned int), 2) - 2);
 	else if ((print[i] != '\0') && (print[i + 1] == '%'))
 		*count -= ft_putchar_fd('%', 1);
-	return (++i);
 }
 
 int	ft_printf(char const *print, ...)
@@ -47,15 +46,15 @@ int	ft_printf(char const *print, ...)
 	{
 		while ((print[i] != '%') && (print[i] != '\0'))
 		{
-			write(1, print + i, 1);
+			write(1, &print[i], 1);
 			i++;
 		}
 		if (print[i] == '\0')
 			break ;
-		i = convers((char *)print, i, param, &count);
+		convers((char *)print, i, param, &count);
 		if (print[i] != '%')
 			va_arg(param, int);
-		i++;
+		i += 2;
 	}
 	va_end(param);
 	return (i + count);
@@ -63,7 +62,6 @@ int	ft_printf(char const *print, ...)
 
 /*int main(void)
 {
-	int num = 981811;
-	ft_printf("\n%d\n", ft_printf("este es %%%%%% un entero: %p", &num));
+	ft_printf(" %x ", -1);
 	return 0;
 }*/
