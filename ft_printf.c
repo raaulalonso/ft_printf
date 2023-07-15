@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 23:36:19 by raalonso          #+#    #+#             */
-/*   Updated: 2023/07/15 19:52:08 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/07/15 20:31:12 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,6 +62,8 @@ int	ft_printf(char const *print, ...)
 
 /*int main(void)
 {
-	ft_printf(" %x ", -1);
+	int a = 10;
+	int *b = &a;
+	ft_printf("%p\n",b);
 	return 0;
 }*/

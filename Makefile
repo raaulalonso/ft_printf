@@ -1,4 +1,8 @@
+CC = gcc
 CFLAGS = -Wall -Werror -Wextra
+
+AR = ar
+ARFLAGS  = rc
 
 NAME = libftprintf.a
 
@@ -11,12 +15,12 @@ OBJS = ${SRCS:.c=.o}
 all: ${NAME}
 
 ${NAME}: ${OBJS}
-	ar rc ${NAME} ${OBJS}
+	${AR} ${ARFLAGS} ${NAME} ${OBJS}
 
 clean :
-	rm -rf *.o
+	rm -rf ${OBJS}
 
 fclean :
-	rm -rf $(NAME) *.o
+	rm -rf ${NAME} ${OBJS}
 
 re: clean all
