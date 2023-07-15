@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 23:36:19 by raalonso          #+#    #+#             */
-/*   Updated: 2023/07/13 21:57:33 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/07/15 18:58:38 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ int	convers(char *print, int i, va_list param, int *count)
 		*count += (ft_putnbr_fd(va_arg(param, int), 1) - 2);
 	else if ((print[i] != '\0') && (print[i + 1] == 'u'))
 		*count += (ft_putnbr_unsigned(va_arg(param, unsigned int)) - 2);
-	/*else if ((print[i] != '\0') && (print[i + 1] == 'p'))
-		*count += (ft_putmem(va_arg(param, void *)) - 2);*/
+	else if ((print[i] != '\0') && (print[i + 1] == 'p'))
+		*count += (ft_putmem(va_arg(param, void *)) - 2);
 	else if ((print[i] != '\0') && (print[i + 1] == 'x'))
 		*count += (ft_puthex(va_arg(param, int), 1) - 2);
 	else if ((print[i] != '\0') && (print[i + 1] == 'X'))
@@ -61,9 +61,9 @@ int	ft_printf(char const *print, ...)
 	return (i + count);
 }
 
-int main(void)
+/*int main(void)
 {
 	int num = 981811;
-	printf("\n%d\n", ft_printf("este es %%%%%% un entero: %p", &num));
+	ft_printf("\n%d\n", ft_printf("este es %%%%%% un entero: %p", &num));
 	return 0;
-}
+}*/
