@@ -6,7 +6,7 @@
 /*   By: raalonso <raalonso@student.42madrid.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/06 23:36:19 by raalonso          #+#    #+#             */
-/*   Updated: 2023/07/17 12:19:20 by raalonso         ###   ########.fr       */
+/*   Updated: 2023/07/18 13:36:30 by raalonso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,7 @@ int	ft_printf(char const *print, ...)
 		if (print[i] == '\0')
 			break ;
 		convers((char *)print, i, param, &count);
-		i++;
-		if (print[i] != '%')
-			va_arg(param, int);
-		i++;
+		i += 2;
 	}
 	va_end(param);
 	return (i + count);
@@ -63,6 +60,6 @@ int	ft_printf(char const *print, ...)
 
 /*int main(void)
 {
-	ft_printf(" %c   %d   %d ", '1', 45, '3');
+	ft_printf("%c%c", '1', '3');
 	return 0;
 }*/
